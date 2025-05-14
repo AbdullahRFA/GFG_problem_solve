@@ -1,47 +1,30 @@
-# User function Template for python3
-
+#User function Template for python3
+def fac(n):
+    res = 1
+    for x in range(2, n + 1):
+        res *= x
+    return res
 class Solution:
-    # Function to find equilibrium point in the array.
-    def findEquilibrium(self, arr):
+
+    def nCr(self, n, r):
         # code here
-        pre = []
-        suf = []
-        for x in arr:
-            pre.append(x)
-            suf.append(x)
-
-        for i in range(1, len(arr)):
-            pre[i] += pre[i - 1]
-        print(pre)
-        for i in range(2, len(arr) + 1):
-            suf[-i] += suf[-i + 1]
-
-        print(suf)
-        for x in range(1, len(arr) - 1):
-            if pre[x - 1] == suf[x + 1]:
-                return x
-        return -1
+        if n<r:
+            return 0
+        elif r==0:
+            return 1
+        return (fac(n)//(fac(n-r)*fac(r)))
 
 
-# {
-# Driver Code Starts
-# Initial Template for Python 3
-import math
+#{
+ # Driver Code Starts
+#Initial Template for Python 3
 
-
-def main():
-    T = int(input())
-    while (T > 0):
-        arr = [int(x) for x in input().strip().split()]
-
+if __name__ == '__main__':
+    t = int(input())
+    for _ in range(t):
+        n = int(input())
+        r = int(input())
         ob = Solution()
-
-        print(ob.findEquilibrium(arr))
+        print(ob.nCr(n, r))
         print("~")
-        T -= 1
-
-
-if __name__ == "__main__":
-    main()
-
 # } Driver Code Ends
