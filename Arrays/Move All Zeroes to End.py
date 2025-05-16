@@ -23,15 +23,17 @@ Explanation: No change in array as there are all 0s
 #User function Template for python3
 
 class Solution:
-	def pushZerosToEnd(self,arr):
-    	# code here
-    	j = 0
-    	for i in range(len(arr)):
-    	    if arr[i] != 0:
-    	        arr[j] = arr[i]
-    	        j += 1
-    	for i in range(j, len(arr)):
-    	    arr[i] = 0
+    def pushZerosToEnd(self, arr):
+        j = 0
+        for i in range(len(arr)):
+            if arr[i] != 0:
+                arr[j] = arr[i]
+                j += 1
+        for i in range(j, len(arr)):
+            arr[i] = 0
+
+
+
 
 
 #{
