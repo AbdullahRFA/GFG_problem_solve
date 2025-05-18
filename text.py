@@ -1,30 +1,43 @@
-#User function Template for python3
-def fac(n):
-    res = 1
-    for x in range(2, n + 1):
-        res *= x
-    return res
 class Solution:
-
-    def nCr(self, n, r):
-        # code here
-        if n<r:
-            return 0
-        elif r==0:
-            return 1
-        return (fac(n)//(fac(n-r)*fac(r)))
+    def peakElement(self, arr):
+        # Code here
+        for i in range(1, len(arr) - 1):
+            if arr[i - 1] < arr[i] and arr[i] > arr[i + 1]:
+                return True
+        return False
 
 
-#{
- # Driver Code Starts
-#Initial Template for Python 3
-
-if __name__ == '__main__':
-    t = int(input())
+# {
+# Driver Code Starts
+if __name__ == "__main__":
+    t = int(input())  # Read number of test cases
     for _ in range(t):
-        n = int(input())
-        r = int(input())
-        ob = Solution()
-        print(ob.nCr(n, r))
+        # Read input and split it into a list of integers
+        arr = list(map(int, input().split()))
+        # Create a Solution object and calculate the result
+
+        index = Solution().peakElement(arr)
+        n = len(arr)
+        flag = False
+        if index < 0 or index >= n:
+            flag = False
+        else:
+            if index == 0 and n == 1:
+                flag = True
+            elif index == 0 and arr[index] > arr[index + 1]:
+                flag = True
+            elif index == n - 1 and arr[index] > arr[index - 1]:
+                flag = True
+            elif index > 0 and index < n - 1 and arr[
+                index - 1] < arr[index] and arr[index] > arr[index + 1]:
+                flag = True
+            else:
+                flag = False
+
+        if flag:
+            print("true")
+        else:
+            print("false")
         print("~")
+
 # } Driver Code Ends
