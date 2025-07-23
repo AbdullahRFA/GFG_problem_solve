@@ -25,11 +25,19 @@ Return the frequency of element x in the given array
 """
 
 
+# class Solution:
+#     def findFrequency(self, arr, x):
+#         fre = {}
+#         for i in arr:
+#             fre[i] = fre.get(i, 0) + 1
+#         if x in fre:
+#             return fre[x]
+#         else:
+#             return 0
+from collections import Counter
 class Solution:
     def findFrequency(self, arr, x):
-        fre = {}
-        for i in arr:
-            fre[i] = fre.get(i, 0) + 1
+        fre = Counter(arr)
         if x in fre:
             return fre[x]
         else:
